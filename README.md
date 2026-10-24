@@ -1,117 +1,135 @@
 # Government-complaint-system_bahhaja_905006101
-# PROG211 - Object-Oriented Programming
-# Project: Government Citizen Complaint Management System
+Government Citizen Complaint Management System
 
-class Complaint:
-    def __init__(self, complaint_id, citizen_name, category, description):
-        self.complaint_id = complaint_id
-        self.citizen_name = citizen_name
-        self.category = category
-        self.description = description
-        self.status = "Pending"
+1. Project Overview
 
-    def display_complaint(self):
-        print("\n----- COMPLAINT DETAILS -----")
-        print("Complaint ID:", self.complaint_id)
-        print("Citizen Name:", self.citizen_name)
-        print("Category:", self.category)
-        print("Description:", self.description)
-        print("Status:", self.status)
+The Government Citizen Complaint Management System is a Python-based application developed to help manage complaints submitted by citizens to government offices. It allows users to submit complaints, view all complaints, search for a specific complaint, and update complaint statuses.
 
-    def update_status(self, new_status):
-        self.status = new_status
-        print("Complaint status updated successfully.")
+The system is developed using Object-Oriented Programming (OOP) concepts in Python.
 
+2. Problem Statement
 
-class ComplaintManagementSystem:
-    def __init__(self):
-        self.complaints = []
+Citizens may experience difficulties reporting community problems such as poor waste collection, damaged roads, and other public service issues. When complaints are not properly organized, tracking and managing them can become difficult.
 
-    def add_complaint(self):
-        print("\n--- Submit a Complaint ---")
+This project provides a simple digital system for recording and managing citizen complaints.
 
-        complaint_id = input("Enter complaint ID: ")
-        citizen_name = input("Enter citizen name: ")
-        category = input("Enter complaint category: ")
-        description = input("Describe the complaint: ")
+3. Project Objectives
 
-        complaint = Complaint(
-            complaint_id,
-            citizen_name,
-            category,
-            description
-        )
+The objectives of this project are to:
 
-        self.complaints.append(complaint)
-        print("Complaint submitted successfully!")
+- Allow citizens' complaints to be recorded.
+- Display all submitted complaints.
+- Search for complaints using their identification numbers.
+- Update the status of complaints.
+- Demonstrate the use of Object-Oriented Programming in Python.
+- Support more organized complaint management.
 
-    def view_complaints(self):
-        if len(self.complaints) == 0:
-            print("\nNo complaints have been submitted.")
-        else:
-            for complaint in self.complaints:
-                complaint.display_complaint()
+4. Technologies Used
 
-    def search_complaint(self):
-        search_id = input("\nEnter the complaint ID to search: ")
+- Programming Language: Python
+- Development Environment: PyCharm
+- Version Control: Git
+- Code Hosting Platform: GitHub
 
-        for complaint in self.complaints:
-            if complaint.complaint_id == search_id:
-                complaint.display_complaint()
-                return
+5. System Features
 
-        print("Complaint not found.")
+Submit a Complaint
 
-    def update_complaint_status(self):
-        search_id = input("\nEnter the complaint ID: ")
+Users can enter a complaint ID, citizen name, complaint category, and description.
 
-        for complaint in self.complaints:
-            if complaint.complaint_id == search_id:
-                print("Current status:", complaint.status)
+View All Complaints
 
-                new_status = input(
-                    "Enter new status (Pending, In Progress, Resolved): "
-                )
+The system displays the details of all complaints submitted during the current session.
 
-                complaint.update_status(new_status)
-                return
+Search for a Complaint
 
-        print("Complaint not found.")
+Users can search for a complaint by entering its complaint ID.
 
-    def run(self):
-        while True:
-            print("\n===================================")
-            print(" GOVERNMENT COMPLAINT MANAGEMENT")
-            print("===================================")
-            print("1. Submit a Complaint")
-            print("2. View All Complaints")
-            print("3. Search for a Complaint")
-            print("4. Update Complaint Status")
-            print("5. Exit")
+Update Complaint Status
 
-            choice = input("Choose an option (1-5): ")
+Users can update a complaint's status, for example, from Pending to In Progress or Resolved.
 
-            if choice == "1":
-                self.add_complaint()
+Exit the System
 
-            elif choice == "2":
-                self.view_complaints()
+Users can exit the application through the main menu.
 
-            elif choice == "3":
-                self.search_complaint()
+6. Object-Oriented Programming Concepts
 
-            elif choice == "4":
-                self.update_complaint_status()
+Classes and Objects
 
-            elif choice == "5":
-                print("Thank you for using the system!")
-                break
+The system uses two classes: "Complaint" and "ComplaintManagementSystem".
 
-            else:
-                print("Invalid choice. Please enter a number from 1 to 5.")
+The "Complaint" class represents an individual complaint. The "ComplaintManagementSystem" class manages complaint records and the available operations.
 
+Encapsulation
 
-# Main program
-if __name__ == "__main__":
-    system = ComplaintManagementSystem()
-    system.run()
+Complaint information is stored in attributes belonging to each complaint object, while methods are used to display information and update its status.
+
+Constructors
+
+The "__init__()" method initializes complaint details and sets the default status to Pending.
+
+Methods
+
+Methods perform specific tasks, including adding complaints, displaying records, searching for complaints, and updating statuses.
+
+Lists
+
+A Python list stores complaint objects during program execution.
+
+7. How to Run the Project
+
+1. Install Python on your computer.
+2. Open PyCharm.
+3. Open the project folder.
+4. Ensure the Python file is named "government_citizen_complaint.py".
+5. Open the Python file.
+6. Click the Run button.
+7. Follow the instructions displayed in the terminal.
+
+8. How to Use the System
+
+After running the program, a menu will appear with five options:
+
+1. Submit a Complaint
+2. View All Complaints
+3. Search for a Complaint
+4. Update Complaint Status
+5. Exit
+
+Enter the number corresponding to the operation you want to perform.
+
+9. Limitations
+
+- Complaint records are stored in memory.
+- Records disappear when the program closes.
+- The current version does not use a database.
+- The application does not provide a graphical user interface.
+- The program does not include user authentication.
+
+10. Future Improvements
+
+Future versions could include:
+
+- A database for permanent complaint storage.
+- User accounts and authentication.
+- A graphical user interface.
+- Complaint tracking and notifications.
+- Reports showing the number and status of complaints.
+- Access controls to protect citizens' personal information.
+
+11. Digital Public Good Potential
+
+The project demonstrates how digital technology can help organize public service information and complaint management.
+
+With further development, documentation, privacy protections, accessibility improvements, and an appropriate open-source licence, the system could be adapted for use by different communities or public institutions.
+
+The current project is a basic educational prototype and has not been assessed or certified as a Digital Public Good.
+
+12. Conclusion
+
+The Government Citizen Complaint Management System demonstrates how Python and Object-Oriented Programming can be used to develop a simple application for managing citizen complaints. It provides basic functions for submitting, viewing, searching, and updating complaints while creating a foundation for future improvements.
+
+Author
+
+Developed as a PROG211 Object-Oriented Programming project.
